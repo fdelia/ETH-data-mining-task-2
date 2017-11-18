@@ -170,8 +170,9 @@ def evaluate(weights, test_data, transform):
                       "data don't match")
         logging.error("%s %s", instances.shape, weights.shape)
         sys.exit(-3)
-    for features, label in izip(instances, labels):
-        if label * np.inner(weights, features) > 0:
+    for features, label in izip(instances, labels): # of test data
+    # weights = what is the influence of a feature to classification
+        if label * np.inner(weights, features) > 0: 
             accuracy += 1
         total += 1
     return float(accuracy) / total

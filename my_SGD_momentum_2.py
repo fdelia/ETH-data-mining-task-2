@@ -11,9 +11,9 @@ def transform(X):
     # dimensions of training set
     n, d = X.shape
     # dimension of RFF features
-    m = 9600
+    m = 20000 #9600
     # parameter for the normal distribution (co)variance
-    gamma = 17.625 
+    gamma =  17.625 # 17.625 
     
     # set random seed to ensure the same transform for every input
     np.random.seed(1)
@@ -45,11 +45,11 @@ def mapper(key, value):
     
     # Try momentum Gradient Descent
     z = w = np.zeros(d)   	# SVM vector initialization
-    alpha = 0.4		  		# stepsize parameter 0.4
-    beta = 0.7			  	# momentum 0.7
+    alpha = 0.3		  		# stepsize parameter 0.4
+    beta = 0.9			  	# momentum 0.7
     
     # passes through the data
-    for i in range(15):
+    for i in range(1):
     	# permutation for SGD
     	perm = np.random.permutation(n)
     	for t in perm:
